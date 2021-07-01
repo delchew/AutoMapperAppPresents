@@ -8,8 +8,8 @@ namespace AutoMapperAppPresents
     {
         public MappingProfile()
         {
-            CreateMap(typeof(User), typeof(UserViewModel));
-            CreateMap(typeof(Product), typeof(ProductViewModel));
+            CreateMap(typeof(User), typeof(UserViewModel)).ReverseMap();
+            CreateMap(typeof(Product), typeof(ProductViewModel)).ReverseMap();
         }
     }
 }
