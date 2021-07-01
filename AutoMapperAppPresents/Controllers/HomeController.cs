@@ -1,28 +1,31 @@
-﻿using AutoMapperAppPresents.ViewModels;
+﻿using AutoMapper;
+using AutoMapperAppPresents.ViewModels;
 using Microsoft.AspNetCore.Mvc;
-using System.Linq;
+using System.Collections.Generic;
 
 namespace AutoMapperAppPresents.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IMapper mapper;
+
+        public HomeController(IMapper mapper)
+        {
+            this.mapper = mapper;
+        }
+
         public IActionResult Index()
         {
             var user = AppRepository.GetUser();
-            var model = new UserViewModel
-            {
-                Id = user.Id,
-                Name = user.Name,
-                Surname = user.Surname,
-                Email = user.Email
-            };
+            var model = mapper.Map<UserViewModel>(user);
             return View(model);
         }
 
         public IActionResult UserProducts()
         {
-            var model = AppRepository.GetUser().Products.Select(p => new ProductViewModel { Title = p.Title, Cost = p.Cost, Description = p.Description});
-            return View(model);
+            var products = AppRepository.GetUser().Products;
+            var models = mapper.Map<List<ProductViewModel>>(products);
+            return View(models);
         }
     }
 }
