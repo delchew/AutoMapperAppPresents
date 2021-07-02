@@ -11,7 +11,7 @@ namespace AutoMapperAppPresents
             {
                 new Product{Id = 1, Title = "Shirt", Cost = 2500, Description = "Good thing for good price"},
                 new Product{Id = 2, Title = "Hat", Cost = 800, Description = "Summer device for summer weather"},
-                new Product{Id = 3, Title = "Shoes", Cost = 2500, Description = "Every mab should have this great pair of shoes"},
+                new Product{Id = 3, Title = "Shoes", Cost = 2500, Description = "Every man should have this great pair of shoes"},
                 new Product{Id = 4, Title = "Tie", Cost = 2500, Description = "Holiday attribute"},
 
             };
